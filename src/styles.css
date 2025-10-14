@@ -12,8 +12,17 @@ body {
     align-items: center;
 }
 
-.hero-container {
+main {
     width: 600px;
+}
+
+.hero-container {
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 10px;
+
+    padding-bottom: 1rem;
+
+    margin-bottom: 3rem;
 }
 
 .hero-img {
@@ -24,6 +33,30 @@ body {
     padding: 1rem;
 }
 
-.hero-text > h1 {
+h1 {
     margin-bottom: 1.5rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+.add-review {
+    width: 600px;
+    padding: 1.5rem;
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 10px;
+}
+
+.add-review > form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+input, button {
+    background-color: hsl(0, 0%, 100%);
+    padding: 0.5rem 1rem ;
+    border:  none;
+    border-radius: 10px;
 }
