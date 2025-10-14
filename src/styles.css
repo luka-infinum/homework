@@ -26,6 +26,15 @@ main {
     margin-bottom: 3rem;
 }
 
+.hero-container {
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 10px;
+
+    padding-bottom: 1rem;
+
+    margin-bottom: 3rem;
+}
+
 .hero-img {
     width:100%;
 }
