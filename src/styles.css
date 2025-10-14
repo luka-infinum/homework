@@ -2,10 +2,13 @@
 * {
     margin: 0;
     box-sizing: border-box;
+
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: oklch(60% 0 0);
+
 
     display: flex;
     flex-direction: column;
@@ -17,7 +20,7 @@ main {
 }
 
 .hero-container {
-    background-color: hsl(0, 0%, 90%);
+    background-color: oklch(95% 0 0);
     border-radius: 10px;
 
     padding-bottom: 1rem;
@@ -41,22 +44,54 @@ h2 {
     margin-bottom: 1rem;
 }
 
+.review-section {
+    background-color: oklch(80% 0 0);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
 .add-review {
     width: 600px;
     padding: 1.5rem;
-    background-color: hsl(0, 0%, 90%);
+    background-color: oklch(95% 0 0);
     border-radius: 10px;
-}
 
-.add-review > form {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
 input, button {
-    background-color: hsl(0, 0%, 100%);
+    background-color: oklch(100% 0 0);
     padding: 0.5rem 1rem ;
     border:  none;
     border-radius: 10px;
+}
+
+button:hover {
+    background-color: oklch(90% 0 0);
+}
+
+.reviews-container {
+    margin-top: 1rem;
+    padding: 1rem;
+   
+}
+
+#reviews {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.review {
+    background-color: oklch(90% 0 0);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+
+    display: flex;
+    direction: row;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+
 }
