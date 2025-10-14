@@ -7,7 +7,8 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: oklch(60% 0 0);
+    /* background-color: oklch(60% 0 0); */
+    background-color: oklch(70% 0.04885 218.867);
 
 
     display: flex;
@@ -33,7 +34,7 @@ main {
 }
 
 .hero-text {
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 h1 {
@@ -45,7 +46,8 @@ h2 {
 }
 
 .review-section {
-    background-color: oklch(80% 0 0);
+    /* background-color: oklch(80% 0 0); */
+    background-color: oklch(85% 0.04885 218.867);
     border-radius: 10px;
     margin-bottom: 2rem;
 }
@@ -84,7 +86,7 @@ button:hover {
 }
 
 .review {
-    background-color: oklch(90% 0 0);
+    background-color: oklch(95% 0 0);
     padding: 0.5rem 1rem;
     border-radius: 10px;
 
