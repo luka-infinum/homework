@@ -2,6 +2,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
+
 }
 
 body {
@@ -27,7 +28,7 @@ main {
 }
 
 .hero-container {
-    background-color: hsl(0, 0%, 90%);
+    background-color: oklch(95% 0 0);
     border-radius: 10px;
 
     padding-bottom: 1rem;
