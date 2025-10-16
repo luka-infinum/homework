@@ -15,7 +15,7 @@ body {
 }
 
 main {
-    width: 320px;
+    width: 90%;
 }
 
 .hero-container {
@@ -94,8 +94,14 @@ button:hover {
 
 }
 
-@media screen and (width > 620px) {
+@media screen and (min-width: 620px) {
     main {
-        width: 600px;
+        max-width: 600px;
+    }
+}   
+
+@media screen and (max-width: 300px) {
+    h1 {
+        font-size: 1.5rem;
     }
 }    
