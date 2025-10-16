@@ -15,7 +15,7 @@ body {
 }
 
 main {
-    width: 600px;
+    width: 320px;
 }
 
 .hero-container {
@@ -50,7 +50,6 @@ h2 {
 }
 
 .add-review {
-    width: 600px;
     padding: 1.5rem;
     background-color: #eeeeee;
     border-radius: 10px;
@@ -94,3 +93,9 @@ button:hover {
     margin-bottom: 1rem;
 
 }
+
+@media screen and (width > 620px) {
+    main {
+        width: 600px;
+    }
+}    
