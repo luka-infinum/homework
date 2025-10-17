@@ -7,9 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* background-color: oklch(60% 0 0); */
-    background-color: oklch(70% 0.04885 218.867);
-
+    background-color: #7ca6b3;
 
     display: flex;
     flex-direction: column;
@@ -17,11 +15,11 @@ body {
 }
 
 main {
-    width: 600px;
+    width: 90%;
 }
 
 .hero-container {
-    background-color: oklch(95% 0 0);
+    background-color: #eeeeee;
     border-radius: 10px;
 
     padding-bottom: 1rem;
@@ -46,16 +44,14 @@ h2 {
 }
 
 .review-section {
-    /* background-color: oklch(80% 0 0); */
-    background-color: oklch(85% 0.04885 218.867);
+    background-color: #abd6e3;
     border-radius: 10px;
     margin-bottom: 2rem;
 }
 
 .add-review {
-    width: 600px;
     padding: 1.5rem;
-    background-color: oklch(95% 0 0);
+    background-color: #eeeeee;
     border-radius: 10px;
 
     display: flex;
@@ -64,14 +60,14 @@ h2 {
 }
 
 input, button {
-    background-color: oklch(100% 0 0);
+    background-color: #ffffff;
     padding: 0.5rem 1rem ;
     border:  none;
     border-radius: 10px;
 }
 
 button:hover {
-    background-color: oklch(90% 0 0);
+    background-color: #dedede;
 }
 
 .reviews-container {
@@ -80,13 +76,13 @@ button:hover {
    
 }
 
-#reviews {
+.reviews {
     display: flex;
     flex-direction: column-reverse;
 }
 
 .review {
-    background-color: oklch(95% 0 0);
+    background-color: #eeeeee;
     padding: 0.5rem 1rem;
     border-radius: 10px;
 
@@ -97,3 +93,15 @@ button:hover {
     margin-bottom: 1rem;
 
 }
+
+@media screen and (min-width: 620px) {
+    main {
+        max-width: 600px;
+    }
+}   
+
+@media screen and (max-width: 300px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}    

@@ -1,19 +1,4 @@
 
-const mockReviews = [ 
-    {
-        description: 'Great move!',
-        rating: 5
-    },
-    {
-        description: 'Awersome!',
-        rating: 5
-    },
-    {
-        description: 'Not bad!',
-        rating: 4
-    },
-]
-
 function saveToLocalStorage(review) {
     const reviewList = loadFromLocalStorage();
     reviewList.push(review);
