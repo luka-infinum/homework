@@ -1,0 +1,107 @@
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #7ca6b3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    width: 90%;
+}
+
+.hero-container {
+    background-color: #eeeeee;
+    border-radius: 10px;
+
+    padding-bottom: 1rem;
+
+    margin-bottom: 3rem;
+}
+
+.hero-img {
+    width:100%;
+}
+
+.hero-text {
+    padding: 1.5rem;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+.review-section {
+    background-color: #abd6e3;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.add-review {
+    padding: 1.5rem;
+    background-color: #eeeeee;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+input, button {
+    background-color: #ffffff;
+    padding: 0.5rem 1rem ;
+    border:  none;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #dedede;
+}
+
+.reviews-container {
+    margin-top: 1rem;
+    padding: 1rem;
+   
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.review {
+    background-color: #eeeeee;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+
+    display: flex;
+    direction: row;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+
+}
+
+@media screen and (min-width: 620px) {
+    main {
+        max-width: 600px;
+    }
+}   
+
+@media screen and (max-width: 300px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}    
