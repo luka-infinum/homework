@@ -95,7 +95,6 @@ button:hover {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 7rem;
 
     margin-bottom: 1rem;
 
@@ -103,11 +102,14 @@ button:hover {
 
 .description {
     flex-grow: 1;
+    word-break: break-all;
+    margin-right: 1rem;
 }
 
 .delete-btn {
     color: white;
     background-color: red;
+    margin-left: 2rem;
 }
 
 @media screen and (min-width: 620px) {
@@ -119,5 +121,10 @@ button:hover {
 @media screen and (max-width: 300px) {
     h1 {
         font-size: 1.5rem;
+    }
+
+    .delete-btn {
+        margin-left: 1rem;
+        padding: 0.5rem;
     }
 }    
