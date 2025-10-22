@@ -7,6 +7,11 @@ function saveToLocalStorage(review) {
     localStorage.setItem('reviews', reviewListString);
 }
 
+function updateLocalStorage(reviewList) {
+    const reviewListString = JSON.stringify(reviewList)
+    localStorage.setItem('reviews', reviewListString);
+}
+
 function loadFromLocalStorage() {
     const reviewListString = localStorage.getItem('reviews');
     const reviewList = JSON.parse(reviewListString);
@@ -24,8 +29,9 @@ function renderReviews() {
     const avgRatingPlaceholder = document.getElementById('avg-rating');
     avgRatingPlaceholder.innerHTML = avgRating;
 
-    reviews.forEach(r => {
+    reviews.forEach((r, idx) => {
         const reviewElement = createReview(r);
+        reviewElement.id =idx;
         reviewContainer.appendChild(reviewElement);
     });
 }
@@ -36,6 +42,7 @@ function createReview(review) {
     reviewElement.classList = ['review'];
 
     const description = document.createElement('p');
+    description.classList = ['description']
     description.innerHTML = review.description;
     reviewElement.appendChild(description);
     
@@ -46,6 +53,7 @@ function createReview(review) {
     const deleteButton = document.createElement('button');
     deleteButton.classList = ['delete-btn'];
     deleteButton.innerHTML = 'Delete';
+    deleteButton.onclick = () => deleteReview(reviewElement.id);
     reviewElement.appendChild(deleteButton);
 
     return reviewElement;
@@ -77,13 +85,24 @@ function postReview() {
     document.getElementById('review-rating').value = '';
 }
 
+function deleteReview(id) {
+    console.log('id: ', id);
+    let reviews = loadFromLocalStorage();
+
+    reviews = reviews.filter((r, idx) => idx !== parseInt(id));
+    updateLocalStorage(reviews);
+    
+    renderReviews();
+}
+
 
 function calculateAvgRating(reviews) {
 
+    if (!reviews.length) 
+        return 0;
+
     let ratingSum = 0;
     reviews.forEach( r => ratingSum += parseInt(r.rating));
-
-    console.log(ratingSum, reviews.length)
 
     return Math.round(ratingSum / reviews.length * 10) / 10;
 }

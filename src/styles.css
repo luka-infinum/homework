@@ -35,6 +35,11 @@ main {
     padding: 1.5rem;
 }
 
+.hero-rating {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
 h1 {
     margin-bottom: 1.5rem;
 }
@@ -87,11 +92,22 @@ button:hover {
     border-radius: 10px;
 
     display: flex;
-    direction: row;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    gap: 7rem;
 
     margin-bottom: 1rem;
 
+}
+
+.description {
+    flex-grow: 1;
+}
+
+.delete-btn {
+    color: white;
+    background-color: red;
 }
 
 @media screen and (min-width: 620px) {
