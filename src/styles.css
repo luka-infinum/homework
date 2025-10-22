@@ -82,6 +82,7 @@ input, button {
 
 button:hover {
     background-color: #dedede;
+    cursor: pointer;
 }
 
 .reviews-container {
@@ -101,7 +102,7 @@ button:hover {
     border-radius: 10px;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
@@ -137,3 +138,37 @@ button:hover {
         padding: 0.5rem;
     }
 }    
+
+
+
+.stars-rating {
+    display: flex;
+    flex-direction: row;
+}
+
+.star {
+    color: rgb(143, 143, 143);
+    font-size: 2rem;
+    
+    background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+.star:active, .star:hover{
+    background: none;
+}
+
+
+.star-selected {
+    color: gold;
+}
+
+
+.rating-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}

@@ -45,20 +45,44 @@ function createReview(review) {
     const reviewElement = document.createElement('div');
     reviewElement.classList = ['review'];
 
+
     const description = document.createElement('p');
     description.classList = ['description']
     description.innerHTML = review.description;
     reviewElement.appendChild(description);
+
+    
+    const ratingContainer = document.createElement('div');
+    ratingContainer.classList = ['rating-container'];
     
     const rating = document.createElement('p');
     rating.innerHTML = review.rating + '/5';
-    reviewElement.appendChild(rating);
+    ratingContainer.appendChild(rating);
+
+    const starRating = document.createElement('div');
+    starRating.classList = ['stars-rating'];
+    for (let i = 1; i <= 5; i++) {
+        const el = document.createElement('div');
+        el.innerHTML = '⭑';
+        
+        if (i <= review.rating)
+            el.classList = ['star star-selected'];
+        else
+            el.classList = ['star'];
+        
+        starRating.appendChild(el);
+    }
+
+    ratingContainer.appendChild(starRating);
+    reviewElement.appendChild(ratingContainer);
+
 
     const deleteButton = document.createElement('button');
     deleteButton.classList = ['delete-btn'];
     deleteButton.innerHTML = 'Delete';
     deleteButton.onclick = () => deleteReview(reviewElement.id);
     reviewElement.appendChild(deleteButton);
+
 
     return reviewElement;
 }
@@ -87,6 +111,7 @@ function postReview() {
     
     document.getElementById('review-description').value = '';
     document.getElementById('review-rating').value = '';
+    resetStars();
 }
 
 function deleteReview(id) {
@@ -110,4 +135,42 @@ function calculateAvgRating(reviews) {
     return (ratingSum / reviews.length).toFixed(2);
 }
 
+
+
+function renderStars() {
+    const starsContainer = document.getElementById('stars-rating');
+    
+    for (let i = 1; i <= 5; i++) {
+        const el = document.createElement('button');
+        el.innerHTML = '⭑';
+        el.classList = ['star'];
+        el.id = i;
+        el.onclick = () => starClick(el.id);
+        
+        starsContainer.appendChild(el);
+    }
+}
+
+function resetStars() {
+    const starsContainer = document.getElementById('stars-rating');
+    starsContainer.childNodes.forEach(el => el.classList = ['star']);
+}
+
+function starClick(rating) {
+    const starsContainer = document.getElementById('stars-rating');
+    
+    starsContainer.childNodes.forEach(el => {
+        if (parseInt(el.id) <= rating) 
+            el.classList.add('star-selected');
+        else
+            el.classList = ['star'];
+    });
+    
+    const reviewRating = document.getElementById('review-rating');
+    reviewRating.value = rating;
+}
+
+
+
 renderReviews();
+renderStars();
