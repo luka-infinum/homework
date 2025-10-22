@@ -54,18 +54,18 @@ function createReview(review) {
     
     const ratingContainer = document.createElement('div');
     ratingContainer.classList = ['rating-container'];
-    
+
     const rating = document.createElement('p');
     rating.innerHTML = review.rating + '/5';
     ratingContainer.appendChild(rating);
 
     const starRating = document.createElement('div');
     starRating.classList = ['stars-rating'];
-    for (let i = 1; i <= 5; i++) {
+    for (let index = 1; index <= 5; index++) {
         const el = document.createElement('div');
         el.innerHTML = '⭑';
         
-        if (i <= review.rating)
+        if (index <= review.rating)
             el.classList = ['star star-selected'];
         else
             el.classList = ['star'];
