@@ -66,7 +66,7 @@ function createReview(review) {
         el.innerHTML = '⭑';
         
         if (index <= review.rating)
-            el.classList = ['star star-selected'];
+            el.classList = ['star star-btn-selected'];
         else
             el.classList = ['star'];
         
@@ -129,7 +129,6 @@ function calculateAvgRating(reviews) {
     if (!reviews.length) 
         return null;
 
-    // reviews.forEach( r => ratingSum += parseInt(r.rating));
     const ratingSum = reviews.reduce((accumulator, review) => accumulator + parseInt(review.rating), 0)
     
     return (ratingSum / reviews.length).toFixed(2);
@@ -143,7 +142,7 @@ function renderStars() {
     for (let i = 1; i <= 5; i++) {
         const el = document.createElement('button');
         el.innerHTML = '⭑';
-        el.classList = ['star'];
+        el.classList = ['star-btn'];
         el.id = i;
         el.onclick = () => starClick(el.id);
         
@@ -153,7 +152,7 @@ function renderStars() {
 
 function resetStars() {
     const starsContainer = document.getElementById('stars-rating');
-    starsContainer.childNodes.forEach(el => el.classList = ['star']);
+    starsContainer.childNodes.forEach(el => el.classList = ['star-btn']);
 }
 
 function starClick(rating) {
@@ -161,9 +160,9 @@ function starClick(rating) {
     
     starsContainer.childNodes.forEach(el => {
         if (parseInt(el.id) <= rating) 
-            el.classList.add('star-selected');
+            el.classList.add('star-btn-selected');
         else
-            el.classList = ['star'];
+            el.classList = ['star-btn'];
     });
     
     const reviewRating = document.getElementById('review-rating');

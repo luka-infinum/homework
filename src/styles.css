@@ -103,8 +103,8 @@ button:hover {
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 0.5rem;
 
     margin-bottom: 1rem;
 
@@ -119,25 +119,7 @@ button:hover {
 .delete-btn {
     color: white;
     background-color: red;
-    margin-left: 2rem;
 }
-
-@media screen and (min-width: 620px) {
-    main {
-        max-width: 600px;
-    }
-}   
-
-@media screen and (max-width: 300px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .delete-btn {
-        margin-left: 1rem;
-        padding: 0.5rem;
-    }
-}    
 
 
 
@@ -146,22 +128,29 @@ button:hover {
     flex-direction: row;
 }
 
-.star {
+.star, .star-btn {
     color: rgb(143, 143, 143);
     font-size: 2rem;
-    
+}
+
+.star-btn {
     background: none;
 	border: none;
 	padding: 0;
 	cursor: pointer;
 }
 
-.star:active, .star:hover{
+.star-btn:active, .star-btn:hover, .star-btn:has(~.star-btn:hover){
     background: none;
+    color: gold;
+}
+
+.star-btn:hover ~ .star-btn{
+    color: rgb(143, 143, 143);
 }
 
 
-.star-selected {
+.star-btn-selected {
     color: gold;
 }
 
@@ -185,7 +174,12 @@ button:hover {
         font-size: 1.5rem;
     }
 
-    .star {
+    .star{
         font-size: 1rem;
+    }
+
+    .delete-btn {
+        margin-left: 1rem;
+        padding: 0.5rem;
     }
 }    
