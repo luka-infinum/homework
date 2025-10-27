@@ -45,20 +45,44 @@ function createReview(review) {
     const reviewElement = document.createElement('div');
     reviewElement.classList = ['review'];
 
+
     const description = document.createElement('p');
     description.classList = ['description']
     description.innerHTML = review.description;
     reviewElement.appendChild(description);
+
     
+    const ratingContainer = document.createElement('div');
+    ratingContainer.classList = ['rating-container'];
+
     const rating = document.createElement('p');
     rating.innerHTML = review.rating + '/5';
-    reviewElement.appendChild(rating);
+    ratingContainer.appendChild(rating);
+
+    const starRating = document.createElement('div');
+    starRating.classList = ['stars-rating'];
+    for (let index = 1; index <= 5; index++) {
+        const el = document.createElement('div');
+        el.innerHTML = '⭑';
+        
+        if (index <= review.rating)
+            el.classList = ['star star-btn-selected'];
+        else
+            el.classList = ['star'];
+        
+        starRating.appendChild(el);
+    }
+
+    ratingContainer.appendChild(starRating);
+    reviewElement.appendChild(ratingContainer);
+
 
     const deleteButton = document.createElement('button');
     deleteButton.classList = ['delete-btn'];
     deleteButton.innerHTML = 'Delete';
     deleteButton.onclick = () => deleteReview(reviewElement.id);
     reviewElement.appendChild(deleteButton);
+
 
     return reviewElement;
 }
@@ -87,6 +111,7 @@ function postReview() {
     
     document.getElementById('review-description').value = '';
     document.getElementById('review-rating').value = '';
+    resetStars();
 }
 
 function deleteReview(id) {
@@ -104,10 +129,31 @@ function calculateAvgRating(reviews) {
     if (!reviews.length) 
         return null;
 
-    // reviews.forEach( r => ratingSum += parseInt(r.rating));
     const ratingSum = reviews.reduce((accumulator, review) => accumulator + parseInt(review.rating), 0)
     
     return (ratingSum / reviews.length).toFixed(2);
 }
+
+
+function resetStars() {
+    const starsContainer = document.getElementById('stars-rating');
+    starsContainer.childNodes.forEach(el => el.classList = ['star-btn']);
+}
+
+function starClick(rating) {
+    const starsContainer = document.getElementById('stars-rating');
+    
+    starsContainer.childNodes.forEach(el => {
+        if (parseInt(el.id) <= rating) 
+            el.classList.add('star-btn-selected');
+        else
+            el.classList = ['star-btn'];
+    });
+    
+    const reviewRating = document.getElementById('review-rating');
+    reviewRating.value = rating;
+}
+
+
 
 renderReviews();
