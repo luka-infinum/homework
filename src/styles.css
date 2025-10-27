@@ -27,15 +27,6 @@ main {
     margin-bottom: 3rem;
 }
 
-.hero-container {
-    background-color: oklch(95% 0 0);
-    border-radius: 10px;
-
-    padding-bottom: 1rem;
-
-    margin-bottom: 3rem;
-}
-
 .hero-img {
     width:100%;
 }

@@ -135,21 +135,6 @@ function calculateAvgRating(reviews) {
 }
 
 
-
-function renderStars() {
-    const starsContainer = document.getElementById('stars-rating');
-    
-    for (let i = 1; i <= 5; i++) {
-        const el = document.createElement('button');
-        el.innerHTML = '⭑';
-        el.classList = ['star-btn'];
-        el.id = i;
-        el.onclick = () => starClick(el.id);
-        
-        starsContainer.appendChild(el);
-    }
-}
-
 function resetStars() {
     const starsContainer = document.getElementById('stars-rating');
     starsContainer.childNodes.forEach(el => el.classList = ['star-btn']);
@@ -172,4 +157,3 @@ function starClick(rating) {
 
 
 renderReviews();
-renderStars();
