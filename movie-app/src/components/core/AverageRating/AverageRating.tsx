@@ -7,7 +7,7 @@ interface IAverageRating {
 
 export const AverageRating = ({ averageRating } : IAverageRating) => {
     return (
-        <Text fontSize={24}> 
+        <Text fontSize="2xl"> 
             {averageRating} / 5
         </Text>
     );

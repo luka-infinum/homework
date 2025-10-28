@@ -11,7 +11,7 @@ const movieMock = {
 
 export default function Home() {
   return (
-    <Flex height="100vh" direction="column" alignItems="center" background="#7ca6b3">
+    <Flex minHeight="100vh" direction="column" alignItems="center" background="#7ca6b3">
       <Flex direction="column" width="90%" maxWidth={600}>
         <ShowDetails {...movieMock} />
       </Flex>
