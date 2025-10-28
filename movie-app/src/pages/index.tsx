@@ -1,4 +1,5 @@
-import { ShowDetails } from "@/components/features/shows/ShowDetails";
+import { ReviewList } from "@/components/features/review/ReviewList/ReviewList";
+import { ShowDetails } from "@/components/features/shows/ShowDetails/ShowDetails";
 import { Flex } from "@chakra-ui/react";
 
 
@@ -9,12 +10,44 @@ const movieMock = {
   // averageRating: 9
 }
 
+
+const reviewMockList = {
+  reviewList: [
+    {
+      email: "ana.babic@yahoo.com",
+      avatarUrl: "https://bit.ly/sage-adebayo",
+      comment: "Odličan film!",
+      rating: 5
+    },
+    {
+      email: "ana.babic@yahoo.com",
+      avatarUrl: "https://bit.ly/sage-adebayo",
+      comment: "Odličan film!",// This is the card body. Lorem ipsum dolor sit amet, consectetuadipiscing elit.",
+      rating: 5
+    },
+    {
+      email: "ana.babic@yahoo.com",
+      avatarUrl: "https://bit.ly/sage-adebayo",
+      comment: "Odličan film!",
+      rating: 5
+    },
+    {
+      email: "ana.babic@yahoo.com",
+      avatarUrl: "https://bit.ly/sage-adebayo",
+      comment: "Odličan film!",
+      rating: 5
+    },
+  ]
+}
+
 export default function Home() {
   return (
     <Flex minHeight="100vh" direction="column" alignItems="center" background="#7ca6b3">
       <Flex direction="column" width="90%" maxWidth={600}>
         <ShowDetails {...movieMock} />
       </Flex>
+
+      <ReviewList {...reviewMockList}/>
     </Flex>
   );
 }
