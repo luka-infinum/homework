@@ -6,10 +6,11 @@ export interface IReviewItem {
     avatarUrl?: string
     comment : string
     rating: number
+    onDelete: () => void
 }
 
 
-export const ReviewItem = ({ email, avatarUrl, comment, rating } : IReviewItem) => {
+export const ReviewItem = ({ email, avatarUrl, comment, rating, onDelete } : IReviewItem) => {
     return (
         <Card.Root size="sm">
             <Card.Header>
@@ -26,7 +27,7 @@ export const ReviewItem = ({ email, avatarUrl, comment, rating } : IReviewItem) 
                 <Text>{rating} / 5</Text>
             </Card.Body>
             <Card.Footer>
-                <Button colorPalette="red" variant="solid">Delete</Button>
+                <Button colorPalette="red" variant="solid" onClick={onDelete}>Delete</Button>
             </Card.Footer>
         </Card.Root>
     );

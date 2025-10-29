@@ -16,12 +16,15 @@ export const ShowDetails = ({ title, description, imageUrl} : IShow) => {
         const reviewsString = localStorage.getItem("reviews");
         if (reviewsString){
             const savedReviews = JSON.parse(reviewsString) as Array<IReviewItem>;
-            const reviewRatingSum = savedReviews
-                                        .flatMap((review) => review.rating)
-                                        .reduce((accumulator, reviewRating) => accumulator + reviewRating);
-            const rating = (reviewRatingSum / savedReviews.length).toFixed(2);
-            // eslint-disable-next-line react-hooks/set-state-in-effect
-            setRating(rating);
+
+            if (savedReviews.length) {
+                const reviewRatingSum = savedReviews
+                                            .flatMap((review) => review.rating)
+                                            .reduce((accumulator, reviewRating) => accumulator + reviewRating);
+                const rating = (reviewRatingSum / savedReviews.length).toFixed(2);
+                // eslint-disable-next-line react-hooks/set-state-in-effect
+                setRating(rating);
+            }
         }
     }, []);
 

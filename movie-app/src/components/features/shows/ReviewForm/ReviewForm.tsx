@@ -1,9 +1,9 @@
+import { IReview } from "@/typings/review.type";
 import { Badge, Box, Button, Field, Heading, Input, NumberInput, Stack, Textarea } from "@chakra-ui/react";
-import { IReviewItem } from "../../review/ReviewItem/ReviewItem";
 
 
 interface IReviewForm {
-    addReview: (review: IReviewItem) => void
+    addReview: (review: IReview) => void
 }
 
 
@@ -16,7 +16,7 @@ export const ReviewForm = ({ addReview } : IReviewForm) => {
         const ratingEl = document.getElementById("review-rating") as HTMLInputElement;
         const rating = parseInt(ratingEl.value);
 
-        const newReview: IReviewItem = {
+        const newReview: IReview = {
             email,
             comment,
             rating,

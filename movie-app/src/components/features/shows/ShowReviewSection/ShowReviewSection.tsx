@@ -1,13 +1,13 @@
 import { Box } from "@chakra-ui/react";
 import { ReviewList } from "../../review/ReviewList/ReviewList";
 import { ReviewForm } from "../ReviewForm/ReviewForm";
-import { IReviewItem } from "../../review/ReviewItem/ReviewItem";
 import { useEffect, useState } from "react";
+import { IReview } from "@/typings/review.type";
 
 
 export const ShowReviewSection = () => {
 
-    const [reviewList, setReviewList] = useState<Array<IReviewItem>>();
+    const [reviewList, setReviewList] = useState<Array<IReview>>();
     
     useEffect(() => {
         const reviewsString = localStorage.getItem("reviews");
@@ -22,7 +22,7 @@ export const ShowReviewSection = () => {
         localStorage.setItem("reviews", JSON.stringify(reviewList))
     }, [reviewList])
 
-    const addReview = (review: IReviewItem) => {
+    const addReview = (review: IReview) => {
         setReviewList(oldReviewList => {
             if (oldReviewList) 
                 return [review, ...oldReviewList]
@@ -31,11 +31,21 @@ export const ShowReviewSection = () => {
         });
     }
 
+    const deleteReview = (targetIndex: number) => {
+        setReviewList(oldReviewList => {
+            if (oldReviewList) {
+                const newReviewList = oldReviewList.filter((review, index) => index != targetIndex)
+                return newReviewList;
+            }
+        })
+        console.log("Deleted review number", targetIndex);
+    }
+
     return (
         <Box backgroundColor="blue.200" borderRadius={10} mb={10}>
             <ReviewForm addReview={addReview} />
             <Box p={6}>
-                <ReviewList reviewList={reviewList}/>
+                <ReviewList reviewList={reviewList} deleteReview={deleteReview}/>
             </Box>
         </Box>
     );
