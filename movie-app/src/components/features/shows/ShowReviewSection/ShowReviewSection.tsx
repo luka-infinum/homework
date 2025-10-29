@@ -2,7 +2,7 @@ import { Box } from "@chakra-ui/react";
 import { ReviewList } from "../../review/ReviewList/ReviewList";
 import { ReviewForm } from "../ReviewForm/ReviewForm";
 import { IReviewItem } from "../../review/ReviewItem/ReviewItem";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const reviewMockList = {
   reviewList: [
@@ -37,6 +37,19 @@ export const ShowReviewSection = () => {
 
     const [reviewList, setReviewList] = useState<Array<IReviewItem>>();
     
+    useEffect(() => {
+        const reviewsString = localStorage.getItem("reviews");
+        if (reviewsString){
+            const savedReviews = JSON.parse(reviewsString);
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setReviewList(savedReviews);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("reviews", JSON.stringify(reviewList))
+    }, [reviewList])
+
     const addReview = (review: IReviewItem) => {
         setReviewList(oldReviewList => {
             if (oldReviewList) 

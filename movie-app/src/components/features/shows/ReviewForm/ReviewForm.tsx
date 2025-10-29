@@ -23,8 +23,10 @@ export const ReviewForm = ({ addReview } : IReviewForm) => {
         }
         
         addReview(newReview);
+        emailEl.value = '';
         commentEl.value = '';
     }
+
 
     return(
         <Box background="gray.100" p={6} borderRadius={10}>
