@@ -3,7 +3,7 @@ import { Avatar, Button, Card, Flex, Text } from "@chakra-ui/react"
 
 export interface IReviewItem {
     email: string
-    avatarUrl: string
+    avatarUrl?: string
     comment : string
     rating: number
 }

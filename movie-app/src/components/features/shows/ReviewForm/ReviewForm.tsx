@@ -1,22 +1,66 @@
-import { Box, Button, Field, Heading, NumberInput, Textarea } from "@chakra-ui/react";
+import { Badge, Box, Button, Field, Heading, Input, NumberInput, Stack, Textarea } from "@chakra-ui/react";
+import { IReviewItem } from "../../review/ReviewItem/ReviewItem";
 
 
-export const ReviewForm = () => {
+interface IReviewForm {
+    addReview: (review: IReviewItem) => void
+}
+
+
+export const ReviewForm = ({ addReview } : IReviewForm) => {
+    const submitForm = () => {
+        const emailEl = document.getElementById("review-email") as HTMLInputElement;
+        const email = emailEl.value ? emailEl.value : 'anonymous';
+        const commentEl = document.getElementById("review-comment") as HTMLInputElement;
+        const comment = commentEl.value;
+        const ratingEl = document.getElementById("review-rating") as HTMLInputElement;
+        const rating = parseInt(ratingEl.value);
+
+        const newReview: IReviewItem = {
+            email,
+            comment,
+            rating,
+        }
+        
+        addReview(newReview);
+        commentEl.value = '';
+    }
+
     return(
         <Box background="gray.100" p={6} borderRadius={10}>
-            <Heading mb={6}>Write a review</Heading>
+            <Heading mb={7}>Write a review</Heading>
 
-            <Textarea size="md" placeholder="Your review" mb={4}/>
+            <Stack gap={4} mb={6}>
+                <Field.Root>
+                    <Field.Label>
+                        Email
+                        <Field.RequiredIndicator
+                        fallback={
+                            <Badge size="xs" variant="surface">
+                            Optional
+                            </Badge>
+                        }
+                        />
+                    </Field.Label>
+                    <Input placeholder="me@example.com" id="review-email"/>
+                </Field.Root>
 
-            <Field.Root mb={6}>
-                <NumberInput.Root width="200px" defaultValue="5" min={1} max={5}>
-                    <NumberInput.Control />
-                    <NumberInput.Input />
-                </NumberInput.Root>
-                <Field.HelperText>Enter a number between 1 and 5</Field.HelperText>
-            </Field.Root>
+                <Field.Root>
+                    <Field.Label>Comment</Field.Label>
+                    <Textarea id="review-comment" size="md" placeholder="Your review"/>
+                </Field.Root>
 
-            <Button colorPalette="blue" width="full">Post</Button>
+                <Field.Root id="review-rating">
+                    <Field.Label>Rating</Field.Label>
+                    <NumberInput.Root width="200px" defaultValue="5" min={1} max={5}>
+                        <NumberInput.Control />
+                        <NumberInput.Input />
+                    </NumberInput.Root>
+                    <Field.HelperText>Enter a number between 1 and 5</Field.HelperText>
+                </Field.Root>
+            </Stack>
+
+            <Button colorPalette="blue" width="full" onClick={submitForm}>Post</Button>
         </Box>
     );
 }
