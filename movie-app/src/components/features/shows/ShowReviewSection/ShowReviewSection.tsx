@@ -22,7 +22,10 @@ export const ShowReviewSection = () => {
         localStorage.setItem("reviews", JSON.stringify(reviewList))
     }, [reviewList])
 
-    const addReview = (review: IReview) => {
+    const addShowReview = (review: IReview) => {
+        if (!review.comment)
+            return
+
         setReviewList(oldReviewList => {
             if (oldReviewList) 
                 return [review, ...oldReviewList]
@@ -43,7 +46,7 @@ export const ShowReviewSection = () => {
 
     return (
         <Box backgroundColor="blue.200" borderRadius={10} mb={10}>
-            <ReviewForm addReview={addReview} />
+            <ReviewForm addShowReview={addShowReview} />
             <Box p={6}>
                 <ReviewList reviewList={reviewList} deleteReview={deleteReview}/>
             </Box>

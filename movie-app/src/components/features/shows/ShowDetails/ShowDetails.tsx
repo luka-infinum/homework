@@ -1,4 +1,4 @@
-import { Box, Heading, Image, Stat, Text } from "@chakra-ui/react"
+import { Alert, Box, Heading, Image, Stat, Text } from "@chakra-ui/react"
 import { useEffect, useState } from "react"
 import { IReviewItem } from "../../review/ReviewItem/ReviewItem"
 
@@ -39,9 +39,13 @@ export const ShowDetails = ({ title, description, imageUrl} : IShow) => {
                     <Stat.Root>
                         <Stat.Label>Rating</Stat.Label>
                         <Stat.ValueText>{rating} / 5</Stat.ValueText>
+                        <Stat.HelpText>Rating is not updated live</Stat.HelpText>
                     </Stat.Root> 
                     : 
-                    <Text>no ratings</Text>}
+                    <Alert.Root status="info">
+                        <Alert.Indicator />
+                        <Alert.Title>No ratings for now (rating is not updated live)</Alert.Title>
+                    </Alert.Root>}
             </Box>
         </Box>
     );

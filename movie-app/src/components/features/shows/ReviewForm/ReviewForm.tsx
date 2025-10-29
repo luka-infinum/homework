@@ -3,11 +3,11 @@ import { Badge, Box, Button, Field, Heading, Input, NumberInput, Stack, Textarea
 
 
 interface IReviewForm {
-    addReview: (review: IReview) => void
+    addShowReview: (review: IReview) => void
 }
 
 
-export const ReviewForm = ({ addReview } : IReviewForm) => {
+export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
     const submitForm = () => {
         const emailEl = document.getElementById("review-email") as HTMLInputElement;
         const email = emailEl.value ? emailEl.value : 'anonymous';
@@ -25,15 +25,8 @@ export const ReviewForm = ({ addReview } : IReviewForm) => {
         addReview(newReview);
         emailEl.value = '';
         commentEl.value = '';
+        ratingEl.value = '5';
     }
-
-    // const checkComent = () => {
-    //     const commentEl = document.getElementById("review-comment") as HTMLInputElement;
-    //     const comment = commentEl.value;
-
-    //     if (!comment)
-    //         return false;
-    // }
 
     return(
         <Box background="gray.100" p={6} borderRadius={10}>
