@@ -1,4 +1,5 @@
 import { ReviewList } from "@/components/features/review/ReviewList/ReviewList";
+import { ReviewForm } from "@/components/features/shows/ReviewForm/ReviewForm";
 import { ShowDetails } from "@/components/features/shows/ShowDetails/ShowDetails";
 import { Flex } from "@chakra-ui/react";
 
@@ -45,9 +46,12 @@ export default function Home() {
     <Flex minHeight="100vh" direction="column" alignItems="center" background="#7ca6b3">
       <Flex direction="column" width="90%" maxWidth={600}>
         <ShowDetails {...movieMock} />
-      </Flex>
+        
+        <ReviewForm />
 
-      <ReviewList {...reviewMockList}/>
+        <ReviewList {...reviewMockList}/>
+
+      </Flex>
     </Flex>
   );
 }
