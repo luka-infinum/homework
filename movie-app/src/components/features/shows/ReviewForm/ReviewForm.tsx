@@ -54,7 +54,7 @@ export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
 
                 <Field.Root id="review-rating">
                     <Field.Label>Rating</Field.Label>
-                    <NumberInput.Root width="200px" defaultValue="5" min={1} max={5}>
+                    <NumberInput.Root defaultValue="5" min={1} max={5}>
                         <NumberInput.Control />
                         <NumberInput.Input />
                     </NumberInput.Root>
