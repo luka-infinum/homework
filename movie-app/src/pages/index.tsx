@@ -1,6 +1,5 @@
-import { ReviewList } from "@/components/features/review/ReviewList/ReviewList";
-import { ReviewForm } from "@/components/features/shows/ReviewForm/ReviewForm";
 import { ShowDetails } from "@/components/features/shows/ShowDetails/ShowDetails";
+import { ShowReviewSection } from "@/components/features/shows/ShowReviewSection/ShowReviewSection";
 import { Flex } from "@chakra-ui/react";
 
 
@@ -12,45 +11,15 @@ const movieMock = {
 }
 
 
-const reviewMockList = {
-  reviewList: [
-    {
-      email: "ana.babic@yahoo.com",
-      avatarUrl: "https://bit.ly/sage-adebayo",
-      comment: "Odličan film!",
-      rating: 5
-    },
-    {
-      email: "ana.babic@yahoo.com",
-      avatarUrl: "https://bit.ly/sage-adebayo",
-      comment: "Odličan film!",// This is the card body. Lorem ipsum dolor sit amet, consectetuadipiscing elit.",
-      rating: 5
-    },
-    {
-      email: "ana.babic@yahoo.com",
-      avatarUrl: "https://bit.ly/sage-adebayo",
-      comment: "Odličan film!",
-      rating: 5
-    },
-    {
-      email: "ana.babic@yahoo.com",
-      avatarUrl: "https://bit.ly/sage-adebayo",
-      comment: "Odličan film!",
-      rating: 5
-    },
-  ]
-}
+
 
 export default function Home() {
   return (
-    <Flex minHeight="100vh" direction="column" alignItems="center" background="#7ca6b3">
+    <Flex minHeight="100vh" direction="column" alignItems="center" background="blue.800">
       <Flex direction="column" width="90%" maxWidth={600}>
         <ShowDetails {...movieMock} />
-        
-        <ReviewForm />
 
-        <ReviewList {...reviewMockList}/>
-
+        <ShowReviewSection />
       </Flex>
     </Flex>
   );

@@ -16,7 +16,7 @@ export const ReviewForm = () => {
                 <Field.HelperText>Enter a number between 1 and 5</Field.HelperText>
             </Field.Root>
 
-            <Button colorPalette="gray" width="full">Post</Button>
+            <Button colorPalette="blue" width="full">Post</Button>
         </Box>
     );
 }

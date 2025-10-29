@@ -26,7 +26,7 @@ export const ReviewItem = ({ email, avatarUrl, comment, rating } : IReviewItem) 
                 <Text>{rating} / 5</Text>
             </Card.Body>
             <Card.Footer>
-                <Button colorPalette="red" variant="subtle">Delete</Button>
+                <Button colorPalette="red" variant="solid">Delete</Button>
             </Card.Footer>
         </Card.Root>
     );

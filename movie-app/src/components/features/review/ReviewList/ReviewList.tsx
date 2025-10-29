@@ -9,7 +9,7 @@ interface IReviewList {
 
 export const ReviewList = ({ reviewList } : IReviewList) => { 
     return (
-        <Flex direction="column" gap={4} p={6} background="blue.100" borderBottomRadius={10}>
+        <Flex direction="column" gap={4} p={6}>
             {reviewList.map((review, index) => <ReviewItem key={index} {...review}/>)}
         </Flex>
     );
