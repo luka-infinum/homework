@@ -4,34 +4,6 @@ import { ReviewForm } from "../ReviewForm/ReviewForm";
 import { IReviewItem } from "../../review/ReviewItem/ReviewItem";
 import { useEffect, useState } from "react";
 
-const reviewMockList = {
-  reviewList: [
-    {
-      email: "ana.babic@yahoo.com",
-      avatarUrl: "https://bit.ly/sage-adebayo",
-      comment: "Odličan film!",
-      rating: 5
-    },
-    {
-      email: "ana.babic@yahoo.com",
-      avatarUrl: "https://bit.ly/sage-adebayo",
-      comment: "Odličan film!",// This is the card body. Lorem ipsum dolor sit amet, consectetuadipiscing elit.",
-      rating: 5
-    },
-    {
-      email: "ana.babic@yahoo.com",
-      avatarUrl: "https://bit.ly/sage-adebayo",
-      comment: "Odličan film!",
-      rating: 5
-    },
-    {
-      email: "ana.babic@yahoo.com",
-      avatarUrl: "https://bit.ly/sage-adebayo",
-      comment: "Odličan film!",
-      rating: 5
-    },
-  ]
-}
 
 export const ShowReviewSection = () => {
 

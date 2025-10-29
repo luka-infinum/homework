@@ -27,6 +27,13 @@ export const ReviewForm = ({ addReview } : IReviewForm) => {
         commentEl.value = '';
     }
 
+    // const checkComent = () => {
+    //     const commentEl = document.getElementById("review-comment") as HTMLInputElement;
+    //     const comment = commentEl.value;
+
+    //     if (!comment)
+    //         return false;
+    // }
 
     return(
         <Box background="gray.100" p={6} borderRadius={10}>
