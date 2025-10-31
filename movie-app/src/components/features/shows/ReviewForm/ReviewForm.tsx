@@ -1,5 +1,6 @@
 import { IReview } from "@/typings/review.type";
 import { Badge, Box, Button, Field, Heading, Input, NumberInput, Stack, Textarea } from "@chakra-ui/react";
+import { useState } from "react";
 
 
 interface IReviewForm {
@@ -8,6 +9,8 @@ interface IReviewForm {
 
 
 export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
+    const [commentError, setCommentError] = useState(false);
+
     const submitForm = () => {
         const emailEl = document.getElementById("review-email") as HTMLInputElement;
         const email = emailEl.value ? emailEl.value : 'anonymous';
@@ -21,6 +24,11 @@ export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
             comment,
             rating,
         }
+
+        if (!comment) {
+            setCommentError(true);
+            return
+        }
         
         addReview(newReview);
         emailEl.value = '';
@@ -33,23 +41,24 @@ export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
             <Heading mb={7}>Write a review</Heading>
 
             <Stack gap={4} mb={6}>
-                <Field.Root>
+                <Field.Root id="review-email">
                     <Field.Label>
                         Email
                         <Field.RequiredIndicator
                         fallback={
-                            <Badge size="xs" variant="surface">
+                            <Badge size="xs" variant="surface" colorPalette="blue">
                             Optional
                             </Badge>
                         }
                         />
                     </Field.Label>
-                    <Input placeholder="me@example.com" id="review-email"/>
+                    <Input placeholder="me@example.com"/>
                 </Field.Root>
 
-                <Field.Root>
+                <Field.Root id="review-comment" invalid={commentError} onChange={() => setCommentError(false)}>
                     <Field.Label>Comment</Field.Label>
-                    <Textarea id="review-comment" size="md" placeholder="Your review"/>
+                    <Textarea size="md" placeholder="Your review"/>
+                    <Field.ErrorText>You must enter a comment!</Field.ErrorText>
                 </Field.Root>
 
                 <Field.Root id="review-rating">

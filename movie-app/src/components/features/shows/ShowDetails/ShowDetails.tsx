@@ -1,32 +1,13 @@
 import { Alert, Box, Heading, Image, Stat, Text } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
-import { IReviewItem } from "../../review/ReviewItem/ReviewItem"
 
 interface IShow {
     title: string
     description: string
     imageUrl?: string
+    averageRating: string | null
 }
 
-export const ShowDetails = ({ title, description, imageUrl} : IShow) => {
-
-    const [rating, setRating] = useState<string>();
-
-    useEffect(() => {
-        const reviewsString = localStorage.getItem("reviews");
-        if (reviewsString){
-            const savedReviews = JSON.parse(reviewsString) as Array<IReviewItem>;
-
-            if (savedReviews.length) {
-                const reviewRatingSum = savedReviews
-                                            .flatMap((review) => review.rating)
-                                            .reduce((accumulator, reviewRating) => accumulator + reviewRating);
-                const rating = (reviewRatingSum / savedReviews.length).toFixed(2);
-                // eslint-disable-next-line react-hooks/set-state-in-effect
-                setRating(rating);
-            }
-        }
-    }, []);
+export const ShowDetails = ({ title, description, imageUrl, averageRating } : IShow) => {
 
     return (
         <Box pb={4} mb={6} borderBottomRadius={10} background="gray.100">
@@ -35,16 +16,16 @@ export const ShowDetails = ({ title, description, imageUrl} : IShow) => {
                 <Heading size="3xl" mb={5}>{title}</Heading>
                 <Text mb={5}>{description}</Text>
 
-                {rating ? 
+                {averageRating ? 
                     <Stat.Root>
                         <Stat.Label>Rating</Stat.Label>
-                        <Stat.ValueText>{rating} / 5</Stat.ValueText>
-                        <Stat.HelpText>Rating is not updated live</Stat.HelpText>
+                        <Stat.ValueText>{averageRating} / 5</Stat.ValueText>
+                        <Stat.HelpText>Rating is updated live</Stat.HelpText>
                     </Stat.Root> 
                     : 
                     <Alert.Root status="info">
                         <Alert.Indicator />
-                        <Alert.Title>No ratings for now (rating is not updated live)</Alert.Title>
+                        <Alert.Title>No ratings for now</Alert.Title>
                     </Alert.Root>}
             </Box>
         </Box>

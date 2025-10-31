@@ -14,7 +14,7 @@ export const ReviewList = ({ reviewList, deleteReview } : IReviewList) => {
         <Flex direction="column" gap={4}>
             {reviewList?.length 
             ? 
-            reviewList.map((review, index) => <ReviewItem key={index} {...review} onDelete={() => deleteReview(index)}/>) 
+            reviewList.map((review, index) => <ReviewItem key={crypto.randomUUID()} {...review} onDelete={() => deleteReview(index)}/>) 
             :
             <Text>Be the first to review this movie!</Text>
             }
