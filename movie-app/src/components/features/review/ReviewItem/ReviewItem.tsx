@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, Flex, Text } from "@chakra-ui/react"
+import { Avatar, Button, Card, Flex, RatingGroup, Text } from "@chakra-ui/react"
 
 
 export interface IReviewItem {
@@ -22,9 +22,12 @@ export const ReviewItem = ({ email, avatarUrl, comment, rating, onDelete } : IRe
                     <Text>{email}</Text>
                 </Flex>
             </Card.Header>
-            <Card.Body>
-                <Text>{comment} </Text>
-                <Text>{rating} / 5</Text>
+            <Card.Body mb={3}>
+                <Text mb={2}>{comment}</Text>
+                <RatingGroup.Root readOnly count={5} value={rating} size="sm" gap="3" colorPalette="orange"> 
+                    <RatingGroup.HiddenInput />
+                    <RatingGroup.Control />
+                </RatingGroup.Root>
             </Card.Body>
             <Card.Footer>
                 <Button colorPalette="red" variant="solid" onClick={onDelete}>Delete</Button>

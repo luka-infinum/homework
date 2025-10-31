@@ -20,7 +20,7 @@ export const ShowContent = () => {
         if (reviewsString){
             const savedReviews = JSON.parse(reviewsString);
 
-            if (savedReviews) {
+            if (!savedReviews) {
                 return
             }
 
@@ -30,7 +30,10 @@ export const ShowContent = () => {
     }, []);
 
     useEffect(() => {
-        localStorage.setItem("reviews", JSON.stringify(reviewList))
+        if (reviewList) 
+            localStorage.setItem("reviews", JSON.stringify(reviewList))
+        else 
+            localStorage.setItem("reviews", JSON.stringify(null))
     }, [reviewList]);
 
 
