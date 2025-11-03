@@ -46,7 +46,7 @@ export const ShowContent = () => {
     const deleteReview = (targetUUID: string) => {
         setReviewList(oldReviewList => {
             if (oldReviewList) {
-                const newReviewList = oldReviewList.filter(review => review.UUID != targetUUID)
+                const newReviewList = oldReviewList.filter(review => review.UUID !== targetUUID)
                 return newReviewList;
             }
         })
