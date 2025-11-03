@@ -19,17 +19,18 @@ export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
         const ratingEl = document.getElementById("review-rating") as HTMLInputElement;
         const rating = parseInt(ratingEl.value);
 
+        if (!comment) {
+            setCommentError(true);
+            return
+        }
+
         const newReview: IReview = {
+            UUID: crypto.randomUUID(),
             email,
             comment,
             rating,
         }
 
-        if (!comment) {
-            setCommentError(true);
-            return
-        }
-        
         addReview(newReview);
         emailEl.value = '';
         commentEl.value = '';
@@ -71,7 +72,7 @@ export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
                 </Field.Root>
             </Stack>
 
-            <Button colorPalette="blue" width="full" onClick={submitForm}>Post</Button>
+            <Button colorPalette="blue" width="full" disabled={commentError} onClick={submitForm}>Post</Button>
         </Box>
     );
 }

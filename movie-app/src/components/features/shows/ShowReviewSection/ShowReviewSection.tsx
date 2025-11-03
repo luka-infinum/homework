@@ -8,7 +8,7 @@ interface IShowReviewSection {
 
     reviewList?: IReview[]
     addShowReview: (review: IReview) => void
-    deleteReview: (targetIndex: number) => void
+    deleteReview: (targetUUID: string) => void
 }
 
 export const ShowReviewSection = ({ reviewList, addShowReview, deleteReview } : IShowReviewSection) => {
