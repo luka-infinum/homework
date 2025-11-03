@@ -49,7 +49,7 @@ export const ShowContent = () => {
     const deleteReview = (targetIndex: number) => {
         setReviewList(oldReviewList => {
             if (oldReviewList) {
-                const newReviewList = oldReviewList.filter((review, index) => index != targetIndex)
+                const newReviewList = oldReviewList.filter((review, index) => index !== targetIndex)
                 return newReviewList;
             }
         })
