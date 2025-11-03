@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ShowDetails } from "../ShowDetails/ShowDetails";
 import { ShowReviewSection } from "../ShowReviewSection/ShowReviewSection";
 import { IReview } from "@/typings/review.type";
@@ -31,9 +31,9 @@ export const ShowContent = () => {
 
     useEffect(() => {
         if (reviewList) 
-            localStorage.setItem("reviews", JSON.stringify(reviewList))
+            localStorage.setItem("reviews", JSON.stringify(reviewList));
         else 
-            localStorage.setItem("reviews", JSON.stringify(null))
+            localStorage.removeItem("reviews");
     }, [reviewList]);
 
 
@@ -56,7 +56,7 @@ export const ShowContent = () => {
     }
 
 
-    const calculateAverageRating = () => {
+    const averageRating = useMemo(() => {
         if (!reviewList || !reviewList.length) 
             return null
 
@@ -68,12 +68,12 @@ export const ShowContent = () => {
         const rating = (reviewRatingSum / reviewList.length).toFixed(2);
 
         return rating;
-    }
+    }, [reviewList]);
 
 
     return (
         <>
-            <ShowDetails {...movieMock} averageRating={calculateAverageRating()} />
+            <ShowDetails {...movieMock} averageRating={averageRating} />
             <ShowReviewSection reviewList={reviewList} addShowReview={addShowReview} deleteReview={deleteReview} />
         </>
     );

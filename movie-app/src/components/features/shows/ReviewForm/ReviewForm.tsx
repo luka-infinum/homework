@@ -22,8 +22,6 @@ export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
         const email = emailEl.value ? emailEl.value : 'anonymous';
         const commentEl = document.getElementById("review-comment") as HTMLInputElement;
         const comment = commentEl.value;
-        // const ratingEl = document.getElementById("review-rating") as HTMLInputElement;
-        // const rating = parseInt(ratingEl.value);
 
         if (!comment) {
             setCommentError(true);
