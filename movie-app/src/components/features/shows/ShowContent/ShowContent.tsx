@@ -46,10 +46,10 @@ export const ShowContent = () => {
         });
     }
 
-    const deleteReview = (targetIndex: number) => {
+    const deleteReview = (targetUUID: string) => {
         setReviewList(oldReviewList => {
             if (oldReviewList) {
-                const newReviewList = oldReviewList.filter((review, index) => index !== targetIndex)
+                const newReviewList = oldReviewList.filter(review => review.UUID !== targetUUID)
                 return newReviewList;
             }
         })

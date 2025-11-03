@@ -6,7 +6,7 @@ import { IReview } from "@/typings/review.type";
 
 export interface IReviewList {
     reviewList?: Array<IReview>
-    deleteReview: (targetIndex: number) => void
+    deleteReview: (targetUUID: string) => void
 }
 
 export const ReviewList = ({ reviewList, deleteReview } : IReviewList) => { 
@@ -14,7 +14,7 @@ export const ReviewList = ({ reviewList, deleteReview } : IReviewList) => {
         <Flex direction="column" gap={4}>
             {reviewList?.length 
             ? 
-            reviewList.map((review, index) => <ReviewItem key={crypto.randomUUID()} {...review} onDelete={() => deleteReview(index)}/>) 
+            reviewList.map(review => <ReviewItem key={review.UUID} {...review} onDelete={() => deleteReview(review.UUID)}/>) 
             :
             <Text>Be the first to review this movie!</Text>
             }

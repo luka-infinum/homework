@@ -37,9 +37,10 @@ export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
             return
 
         const newReview: IReview = {
+            UUID: crypto.randomUUID(),
             email,
             comment,
-            rating: starRating,
+            rating,
         }
 
         
@@ -86,7 +87,7 @@ export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
                 </Field.Root>
             </Stack>
 
-            <Button colorPalette="blue" width="full" onClick={submitForm}>Post</Button>
+            <Button colorPalette="blue" width="full" disabled={commentError} onClick={submitForm}>Post</Button>
         </Box>
     );
 }
