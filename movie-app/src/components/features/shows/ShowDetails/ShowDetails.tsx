@@ -11,7 +11,7 @@ export const ShowDetails = ({ title, description, imageUrl, averageRating } : IS
 
     return (
         <Box pb={4} mb={6} borderBottomRadius={10} background="gray.100">
-            {imageUrl ? <Image src={imageUrl} alt="Image of a star in a galaxy"/> : <Image src={"https://placehold.net/600x400.png"} alt="Movie hero image unavailable"/>}
+            {imageUrl ? <Image src={imageUrl} alt="Image of a star in a galaxy"/> : <Image src="https://placehold.net/600x400.png" alt="Movie hero image unavailable"/>}
             <Box p={6}>
                 <Heading size="3xl" mb={5}>{title}</Heading>
                 <Text mb={5}>{description}</Text>
