@@ -1,0 +1,28 @@
+import { Box, HStack, ScrollArea } from "@chakra-ui/react";
+import { SidebarNavigation } from "../SidebarNavigation/SidebarNavigation";
+import { ReactNode } from "react";
+
+
+interface IMovieAppLayout {
+    children?: ReactNode | ReactNode[]
+}
+
+export default function MovieAppLayout({ children } : IMovieAppLayout) {
+    return (
+        <HStack backgroundColor="blue.700">
+            <Box>
+                <SidebarNavigation />
+            </Box>
+            <ScrollArea.Root height="100vh" size="xs">
+                <ScrollArea.Viewport>
+                    <ScrollArea.Content spaceY="4" textStyle="sm">
+                        {children}
+                    </ScrollArea.Content>
+                </ScrollArea.Viewport>
+                <ScrollArea.Scrollbar>
+                    <ScrollArea.Thumb />
+                </ScrollArea.Scrollbar>
+            </ScrollArea.Root>
+        </HStack>
+    );
+}

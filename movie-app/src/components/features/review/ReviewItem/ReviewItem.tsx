@@ -30,7 +30,7 @@ export const ReviewItem = ({ email, avatarUrl, comment, rating, onDelete } : IRe
                 </RatingGroup.Root>
             </Card.Body>
             <Card.Footer>
-                <Button colorPalette="red" variant="solid" onClick={onDelete}>Delete</Button>
+                <Button colorPalette="red" variant="solid" size="xs" onClick={onDelete}>Delete</Button>
             </Card.Footer>
         </Card.Root>
     );
