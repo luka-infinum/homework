@@ -3,12 +3,12 @@ import { Badge, Box, Button, Field, Heading, Input, RatingGroup, Stack, Textarea
 import { useState } from "react";
 
 
-interface IReviewForm {
+interface IReviewFormProps {
     addShowReview: (review: IReview) => void
 }
 
 
-export const ReviewForm = ({ addShowReview: addReview } : IReviewForm) => {
+export const ReviewForm = ({ addShowReview: addReview } : IReviewFormProps) => {
     const DEFAULT_RATING = 0;
     const [commentError, setCommentError] = useState(false);
     const [ratingError, setRatingError] = useState(false);

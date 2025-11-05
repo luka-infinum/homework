@@ -3,11 +3,11 @@ import { SidebarNavigation } from "../../SidebarNavigation/SidebarNavigation";
 import { ReactNode } from "react";
 
 
-interface IMovieAppLayout {
+interface IMovieAppLayoutProps {
     children?: ReactNode | ReactNode[]
 }
 
-export default function MovieAppLayout({ children } : IMovieAppLayout) {
+export default function MovieAppLayout({ children } : IMovieAppLayoutProps) {
     return (
         <HStack backgroundColor="blue.700">
             <SidebarNavigation />
