@@ -1,14 +1,15 @@
 import { Card, Flex, Icon, Image, LinkBox, LinkOverlay } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import { MdStar } from "react-icons/md";
 
-export interface IShowCard {
+export interface IShowCardProps {
 	UUID: string;
 	imageUrl: string;
 	title: string;
 	rating: string;
 }
 
-export const ShowCard = ({ UUID, imageUrl, title, rating }: IShowCard) => {
+export const ShowCard = ({ UUID, imageUrl, title, rating }: IShowCardProps) => {
 	return (
 		<Card.Root as={LinkBox} width={52} size="sm" overflow="hidden" rounded={10} borderColor="blue.800">
 			<Image
@@ -18,8 +19,10 @@ export const ShowCard = ({ UUID, imageUrl, title, rating }: IShowCard) => {
 			/>
 			<Card.Body>
 				<Card.Title>
-					<LinkOverlay href={`all-shows/${UUID}`}>
-						{title}
+					<LinkOverlay asChild>
+						<NextLink href={`all-shows/${UUID}`}>
+							{title}
+						</NextLink>
 					</LinkOverlay>
 				</Card.Title>
 				<Card.Description as={Flex} color="blue.700" direction="row" alignItems="center" gap={1}>

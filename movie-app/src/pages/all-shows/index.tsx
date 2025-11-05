@@ -1,5 +1,5 @@
-import MovieAppLayout from "@/components/shared/MovieAppLayout/MovieAppLayout";
-import { ShowList } from "@/components/shared/ShowList/ShowList";
+import MovieAppLayout from "@/components/shared/layouts/MovieAppLayout/MovieAppLayout";
+import { ShowList } from "@/components/shared/show/ShowList/ShowList";
 
 
 const mockList = [
@@ -60,7 +60,7 @@ const mockList = [
 ]
 
 
-export default function Page() {
+export default function AllShowsPage() {
     return (
         <MovieAppLayout>
             <ShowList showList={mockList}/>

@@ -1,9 +1,9 @@
 import { ShowContent } from "@/components/features/shows/ShowContent/ShowContent";
-import MovieAppLayout from "@/components/shared/MovieAppLayout/MovieAppLayout";
+import MovieAppLayout from "@/components/shared/layouts/MovieAppLayout/MovieAppLayout";
 import { Flex } from "@chakra-ui/react";
 
 
-export default function Home() {
+export default function ShowPage() {
   return (
     <MovieAppLayout>
       <Flex minHeight="100vh" direction="column" alignItems="center" background="blue.800">

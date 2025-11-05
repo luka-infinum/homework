@@ -4,14 +4,13 @@ import { ReviewForm } from "../ReviewForm/ReviewForm";
 import { IReview } from "@/typings/review.type";
 
 
-interface IShowReviewSection {
-
+interface IShowReviewSectionProps {
     reviewList?: IReview[]
     addShowReview: (review: IReview) => void
     deleteReview: (targetUUID: string) => void
 }
 
-export const ShowReviewSection = ({ reviewList, addShowReview, deleteReview } : IShowReviewSection) => {
+export const ShowReviewSection = ({ reviewList, addShowReview, deleteReview } : IShowReviewSectionProps) => {
 
     return (
         <Box backgroundColor="blue.200" borderRadius={10} mb={10}>

@@ -1,7 +1,7 @@
 import { Avatar, Button, Card, Flex, RatingGroup, Text } from "@chakra-ui/react"
 
 
-export interface IReviewItem {
+export interface IReviewItemProps {
     email: string
     avatarUrl?: string
     comment : string
@@ -10,7 +10,7 @@ export interface IReviewItem {
 }
 
 
-export const ReviewItem = ({ email, avatarUrl, comment, rating, onDelete } : IReviewItem) => {
+export const ReviewItem = ({ email, avatarUrl, comment, rating, onDelete } : IReviewItemProps) => {
     return (
         <Card.Root size="sm">
             <Card.Header>
