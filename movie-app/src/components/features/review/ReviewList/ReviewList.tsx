@@ -4,12 +4,12 @@ import { IReview } from "@/typings/review.type";
 
 
 
-export interface IReviewList {
+export interface IReviewListProps {
     reviewList?: Array<IReview>
     deleteReview: (targetUUID: string) => void
 }
 
-export const ReviewList = ({ reviewList, deleteReview } : IReviewList) => { 
+export const ReviewList = ({ reviewList, deleteReview } : IReviewListProps) => { 
     return (
         <Flex direction="column" gap={4}>
             {reviewList?.length 

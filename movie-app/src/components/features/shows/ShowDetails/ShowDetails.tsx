@@ -1,13 +1,13 @@
 import { Alert, Box, Heading, Image, Stat, Text } from "@chakra-ui/react"
 
-interface IShow {
+interface IShowDetailsProps {
     title: string
     description: string
     imageUrl?: string
     averageRating: string | null
 }
 
-export const ShowDetails = ({ title, description, imageUrl, averageRating } : IShow) => {
+export const ShowDetails = ({ title, description, imageUrl, averageRating } : IShowDetailsProps) => {
 
     return (
         <Box pb={4} mb={6} borderBottomRadius={10} background="gray.100">
