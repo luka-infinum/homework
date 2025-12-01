@@ -4,8 +4,9 @@ export async function fetcher<T>(input: (string | Request) | URL, init?: Request
     try {
         const response = await fetch(input, init);
 
-        if (!response.ok)
+        if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
+        }
 
         return await response.json();
 

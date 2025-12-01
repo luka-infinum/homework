@@ -20,13 +20,12 @@ describe('ReviewItem', () => {
     })
     
     
-    // it('should render correct rating', () => {
-    //     renderWithProviders(<ReviewItem {...mockReview} onDelete={() => {}}/>)
+    it('should render correct rating', () => {
+        renderWithProviders(<ReviewItem {...mockReview} onDelete={() => {}}/>)
         
-    //     const rating = screen.getAllByRole('radio')
-    //     console.log(rating.filter(star => star.ariaChecked === 'true'))
-    //     expect(rating.length).toBe(5)
-    // })
+        const avgRating = screen.getByText(mockReview.rating)
+        expect(avgRating).toBeInTheDocument()
+    })
     
     
     it('should render review comment', () => {

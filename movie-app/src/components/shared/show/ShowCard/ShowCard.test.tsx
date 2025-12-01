@@ -30,11 +30,11 @@ describe('ShowCard', () => {
     })
 
 
-    // it('should render correct average rating', async () => {
-    //     renderWithProviders(<ShowCard {...mockShow}/>)
+    it('should render correct average rating', () => {
+        renderWithProviders(<ShowCard {...mockShow}/>)
 
-    //     const avgRating = await screen.findByText(mockShow.rating)
+        const avgRating = screen.getByText(`${mockShow.rating}/5`)
 
-    //     expect(avgRating).toBeInTheDocument()
-    // })
+        expect(avgRating).toBeInTheDocument()
+    })
 })
