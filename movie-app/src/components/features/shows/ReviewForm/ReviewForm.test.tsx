@@ -1,41 +1,34 @@
 import { renderWithProviders } from "@/test/test-utils"
 import { ReviewForm } from "./ReviewForm"
 import { screen } from "@testing-library/dom"
-// import { act } from "@testing-library/react"
 
 
 describe('ReviewForm', () => {
 
-    it('should render comment input', () => {
+    it('should render comment input', async () => {
         
-        // act(() => {
             renderWithProviders(<ReviewForm addShowReview={() => {}}/>)
             
-            const commentInput = screen.getByPlaceholderText('Your review')
+            const commentInput = await screen.findByPlaceholderText('Your review')
             expect(commentInput).toBeInTheDocument()
             
-        // })
     })
     
-    it('should render rating input', () => {
+    it('should render rating input', async () => {
         
-        // act(() => {
             renderWithProviders(<ReviewForm addShowReview={() => {}}/>)
             
-            const ratingInput = screen.getByText('Rating')
+            const ratingInput = await screen.findByText('Rating')
             expect(ratingInput).toBeInTheDocument()
             
-        // })
     })
     
-    it('should render button', () => {
+    it('should render button', async () => {
 
-        // act(() => {
             renderWithProviders(<ReviewForm addShowReview={() => {}}/>)
             
-            const button = screen.getByText('Post')
+            const button = await screen.findByText('Post')
             expect(button).toBeInTheDocument()
 
-        // })
     })
 })
