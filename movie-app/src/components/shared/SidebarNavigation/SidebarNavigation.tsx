@@ -10,7 +10,7 @@ export const SidebarNavigation = () => {
 				My movie app
 			</Heading>
 			<Stack gap={4} width={48}>
-				<SidebarLink url="/all-shows" linkText="All shows" active />
+				<SidebarLink url="/shows" linkText="All shows" active />
 				<SidebarLink url="/top-rated" linkText="Top rated" />
 				<SidebarLink url="/" linkText="My profile" />
 			</Stack>
