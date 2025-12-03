@@ -2,18 +2,18 @@ import { useEffect, useMemo, useState } from 'react';
 import { ShowDetails } from '../ShowDetails/ShowDetails';
 import { ShowReviewSection } from '../ShowReviewSection/ShowReviewSection';
 import { IReview } from '@/typings/review.type';
-import { useParams } from 'next/navigation';
 import useSWR from 'swr';
 import { getShow } from '@/fetchers/shows';
 import { EmptyState } from '@chakra-ui/react';
 import { TbMoodConfuzed } from 'react-icons/tb';
+import { useRouter } from 'next/router';
 
 export const ShowContent = () => {
-	const params = useParams();
+	const router = useRouter();
 
 	const { data, error, isLoading } = useSWR(
-		params ? `api/shows/${params.id}` : null,
-		() => getShow(params.id as string)
+		`api/shows/${router.query.id}`,
+		() => getShow(router.query.id as string)
 	);
 
 	const [reviewList, setReviewList] = useState<Array<IReview>>();
@@ -33,12 +33,15 @@ export const ShowContent = () => {
 	}, []);
 
 	useEffect(() => {
-		if (reviewList) localStorage.setItem('reviews', JSON.stringify(reviewList));
-		else localStorage.removeItem('reviews');
+		if (reviewList) {
+			localStorage.setItem('reviews', JSON.stringify(reviewList));
+		} else localStorage.removeItem('reviews');
 	}, [reviewList]);
 
 	const averageRating = useMemo(() => {
-		if (!reviewList || !reviewList.length) return null;
+		if (!reviewList || !reviewList.length) {
+			return null;
+		}
 
 		const reviewRatingSum = reviewList
 			.flatMap((review) => review.rating)
@@ -59,7 +62,7 @@ export const ShowContent = () => {
 		);
 	}
 
-	if (error || !data) {
+	if (error) {
 		return (
 			<EmptyState.Root minH="100vh" backgroundColor="blue.800">
 				<EmptyState.Content backgroundColor="whiteAlpha.900" p={8} rounded={10}>
@@ -67,12 +70,23 @@ export const ShowContent = () => {
 						<TbMoodConfuzed />
 					</EmptyState.Indicator>
 					<EmptyState.Description>
-						Error: There is no show matching the given UUID!
+						An error occured while fetching the data!
 					</EmptyState.Description>
 				</EmptyState.Content>
 			</EmptyState.Root>
 		);
 	}
+
+	if (!data) {
+		return (
+			<EmptyState.Root minH="100vh" backgroundColor="blue.800">
+				<EmptyState.Content backgroundColor="whiteAlpha.900" p={8} rounded={10}>
+					<EmptyState.Description>There is no information available for this show yet!</EmptyState.Description>
+				</EmptyState.Content>
+			</EmptyState.Root>
+		);
+	}
+
 	const showDetails = data;
 
 	const addShowReview = (review: IReview) => {
