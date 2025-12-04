@@ -69,9 +69,7 @@ export const ShowContent = () => {
 					<EmptyState.Indicator>
 						<TbMoodConfuzed />
 					</EmptyState.Indicator>
-					<EmptyState.Description>
-						An error occured while fetching the data!
-					</EmptyState.Description>
+					<EmptyState.Description>An error occured while fetching the data!</EmptyState.Description>
 				</EmptyState.Content>
 			</EmptyState.Root>
 		);
@@ -91,17 +89,18 @@ export const ShowContent = () => {
 
 	const addShowReview = (review: IReview) => {
 		setReviewList((oldReviewList) => {
-			if (oldReviewList) return [review, ...oldReviewList];
-			else return [review];
+			if (oldReviewList) {
+				return [review, ...oldReviewList];
+			} else {
+				return [review];
+			}
 		});
 	};
 
 	const deleteReview = (targetUUID: string) => {
 		setReviewList((oldReviewList) => {
 			if (oldReviewList) {
-				const newReviewList = oldReviewList.filter(
-					(review) => review.UUID !== targetUUID
-				);
+				const newReviewList = oldReviewList.filter((review) => review.UUID !== targetUUID);
 				return newReviewList;
 			}
 		});
@@ -110,11 +109,7 @@ export const ShowContent = () => {
 	return (
 		<>
 			<ShowDetails {...showDetails} averageRating={averageRating} />
-			<ShowReviewSection
-				reviewList={reviewList}
-				addShowReview={addShowReview}
-				deleteReview={deleteReview}
-			/>
+			<ShowReviewSection reviewList={reviewList} addShowReview={addShowReview} deleteReview={deleteReview} />
 		</>
 	);
 };
