@@ -24,6 +24,7 @@ export const ReviewItem = ({ email, avatarUrl, comment, rating, onDelete } : IRe
             </Card.Header>
             <Card.Body mb={3}>
                 <Text mb={2}>{comment}</Text>
+                <Text hidden>{rating}</Text>
                 <RatingGroup.Root readOnly count={5} value={rating} size="sm" gap="3" colorPalette="orange"> 
                     <RatingGroup.HiddenInput />
                     <RatingGroup.Control />
