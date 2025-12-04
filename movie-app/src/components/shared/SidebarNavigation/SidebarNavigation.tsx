@@ -1,11 +1,11 @@
 import { Heading, Link, Stack } from '@chakra-ui/react';
 import { SidebarLink } from './components/SidebarLink';
-import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 
 
 export const SidebarNavigation = () => {
-	const pathname = usePathname();
+	const pathname = useRouter().pathname;
 
 	return (
 		<Stack direction="column" height="100vh" p={8}>

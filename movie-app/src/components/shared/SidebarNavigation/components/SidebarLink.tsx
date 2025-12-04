@@ -13,7 +13,7 @@ export const SidebarLink = ({ url, linkText, path }: ISidebarLinkProps) => {
 			as={NextLink}
 			href={url}
 			color="white"
-			backgroundColor={path === url ? 'blue.600' : ''}
+			_currentPage={{ backgroundColor: "blue.600"}}
 			paddingY={2}
 			paddingX={4}
 			rounded="xl"
