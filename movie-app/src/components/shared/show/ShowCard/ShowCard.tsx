@@ -20,7 +20,7 @@ export const ShowCard = ({ UUID, imageUrl, title, rating }: IShowCardProps) => {
 			<Card.Body>
 				<Card.Title>
 					<LinkOverlay asChild>
-						<NextLink href={`all-shows/${UUID}`}>
+						<NextLink href={`shows/${UUID}`}>
 							{title}
 						</NextLink>
 					</LinkOverlay>
