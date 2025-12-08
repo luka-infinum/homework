@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 
 
 export const SidebarNavigation = () => {
-	const pathname = useRouter().pathname;
+	const { pathname } = useRouter();
 
 	return (
 		<Stack direction="column" height="100vh" p={8}>
